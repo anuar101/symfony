@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Website CSS style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <div class="wrapper container-fluid col-md-11">
+        <h1 id="title">Tech Test</h1>
+        <div class="createUser col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                    {% include 'user/newUser.html.twig' %}
+                </div>
+            </div>
+        </div>
+
+        <div class="table-user container col-sm-7 col-sm-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                <table class="table-title table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="col-md-2">Name</th>
+                        <th class="col-md-1">Age</th>
+                        <th class="col-md-1">Rremarks</th>
+                        <th class="col-md-1">Delete User</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        {% for users in user  %}
+                        <td>{{ users.name }}</td>
+                        <td>{{ users.age }}</td>
+                        <td>{{ users.remarks }}</td>
+                        
+                        <td>
+                            <button id="{{ users.id }}" type="button" class="deleteUser btn btn-sm btn-danger">Delete</button>
+                            <button id="{{ users.id }}" type="button" class="updateUser btn btn-sm btn-info">Edit</button>
+                                                </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+/* $(function () {
+    $("#dataTables-example td").click(function (e) {
+        e.preventDefault(); // <-- consume event
+        e.stopImmediatePropagation();
+        
+        $this = $(this);
+
+        if ($this.data('editing')) return;  
+        
+        var val = $this.text();
+        var vals = 'here'+$this.attr('ids');
+        var checkVal = 'here'+$this.attr('id');
+        var checkValReturn = 'herehere'+$this.attr('id');
+        var id = $(this).attr('ids');
+        $this.empty();
+        $this.data('editing', true);        
+        alert(checkValReturn);
+        alert(checkVal);
+        if(checkVal == 'hereundefined'){
+            $('<input type="text" class="editfield">').val(val).appendTo($this);
+        }
+        if(checkValReturn == 'hereherehere'){
+            $("#here"+id).empty().append('<i id="'+id+'" dataname="'+id+'" class="fa fa-trash deleteUser removebutton" aria-hidden="true"></i> | <i id="'+id+'" class="fa fa-pencil updateUser" aria-hidden="true"></i>');
+        }else{
+            $("#here"+id).empty().append('<i class="fa fa-save" aria-hidden="true" onclick="saveData();"></i>');   
+        }
+    });
+
+    putOldValueBack = function () {
+        $("#dataTables-example .editfield").each(function(){
+            $this = $(this);
+            var val = $this.val();
+            var td = $this.closest('td');
+            td.empty().html(val).data('editing', false);
+            
+        });
+    }
+    /*$(document).click(function (e) {
+        putOldValueBack();
+    });
+});
+function saveData() {
+    putOldValueBack();
+}*/*/

@@ -1,0 +1,504 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style type="text/css">
+    .select{
+        width: 100% !important;
+    }
+    a:hover,a:focus{
+        color:#fff;
+    }
+    .saving {
+         font-size: 40px;
+    }
+
+    .saving span {
+        font-size: 50px;
+        animation-name: blink;
+
+    }
+
+    .saving span:nth-child(2) {
+        animation-delay: .2s;
+     }
+  
+    .saving span:nth-child(3) {
+          animation-delay: .4s;
+      }
+      #signline-background-overlay{
+    z-index: 10 !important;
+    background: black !important;
+    opacity: .90 !important;
+    filter: alpha(opacity=75) !important;
+    height: 100% !important;
+    width:98% !important;
+    position: absolute !important;
+}
+</style>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url('homewelcome') }}">Portfolio</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="{{ url('homewelcome') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Examples<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('homepage') }}">Add New Record</a>
+                                </li>
+                                <li>
+                                   <a href="{{ url('generatepdf') }}">Generate Pdf</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('flot') }}">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('morris') }}"> Charts</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="{{ url('tables') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('forms') }}"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('panels_wells') }}">Panels and Wells</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('buttons') }}">Buttons</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('notifications') }}">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('typography') }}">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('icons') }}"> Icons</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('grid') }}">Grid</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Generate PDF Concurrent</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Primary Information
+                        </div>
+                        <div class="panel-body">
+                        <div class="row col-sm-12 main-section">
+                                <div class="manual-descrpition-panel" style="width:100%; height:950px;margin-bottom: 10px;">
+                                    <div class="form-body">
+                                        <form id="generatePdf" name="signBoardForm" method="POST" check-back="true"  enctype="multipart/form-data">
+                                            <div class="col-md-12">   
+                                                    <p>
+                                                        <div class="form-group">
+                                                            <label>First Image</label>
+
+                                                            <input type="file" id="imagename" class="upload" name="imagename">
+                                                            <input type="hidden" id="img1" class="upload" name="pdfname1">
+                                                        </div>
+                                                    </p>   
+                                                    <p> 
+                                                    <div class="text-center">
+                                                        <img id="uploadPreview" style="display:block; width: 100% !important" src="{{ asset('assets/vendor/pdf/no_image_available.png') }}" class="img-thumbnail"/>
+                                                        <input type="hidden" id="x" name="x" />
+                                                        <input type="hidden" id="y" name="y" />
+                                                        <input type="hidden" id="w" name="w" />
+                                                        <input type="hidden" id="h" name="h" />
+                                                    </div>
+                                                    </p>   
+                                                    <p>
+                                                        <div class="form-group">
+                                                            <label>Second Image</label>
+                                                            <input type="file"  id="imagename1" class="upload" name="imagename1">
+                                                            <input type="hidden" id="img2" class="upload" name="pdfname2">
+                                                        </div>
+                                                    </p>
+                                                    <p> 
+                                                    <div class="text-center">
+                                                        <img id="uploadPreview1" style="display:block; width: 100% !important" src="{{ asset('assets/vendor/pdf/no_image_available.png') }}" class="img-thumbnail"/>
+                                                        <input type="hidden" id="x" name="x" />
+                                                        <input type="hidden" id="y" name="y" />
+                                                        <input type="hidden" id="w" name="w" />
+                                                        <input type="hidden" id="h" name="h" />
+                                                    </div>
+                                                    </p>      
+                                                    <p>
+                                                        <div class="form-group">
+                                                            <label>Third Image</label>
+                                                            <input type="file"  id="imagename2" class="upload" name="imagename2">
+                                                            <input type="hidden" id="img3" class="upload" name="pdfname3">
+                                                        </div>
+                                                    </p> 
+                                                    <p> 
+                                                    <div class="text-center">
+                                                        <img id="uploadPreview2" style="display:block; width: 100% !important" src="{{ asset('assets/vendor/pdf/no_image_available.png') }}" class="img-thumbnail"/>
+                                                        <input type="hidden" id="x" name="x" />
+                                                        <input type="hidden" id="y" name="y" />
+                                                        <input type="hidden" id="w" name="w" />
+                                                        <input type="hidden" id="h" name="h" />
+                                                    </div>
+                                                    </p>    
+                                                    <label> Heading</label>
+                                                    <p>
+                                                        <input class="form-control checkLen" id="heading" maxlength="" name="heading" placeholder="Heading" type="text">
+                                                    </p>   
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p>   
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p>   
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p>   
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p>   
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p>   
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p> 
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p> 
+                                                    
+                                                    
+                                                    <label>Description</label>
+                                                    <p>
+                                                        <textarea name="description" style="resize: vertical !important;"  placeholder="Description"  id="description" maxlength="" class="form-control checkLen" rows="4" ></textarea>
+                                                    </p> 
+                                                    
+                                                <div class="h-10"></div>
+                                            </div>
+                                        </form>    
+                                    </div>   
+                                    <footer class="text-white h5" style="padding:5px;">
+                                        
+                                            <p class="text-center" style="">
+                                                <input type="button" value="Save & Preview Pdf" onclick="generatePdf();" class="btn btn-primary"></input>
+                                            </p>
+                                           
+                                    </footer>
+                                </div>    
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Preview 
+                        </div>
+                        <div class="panel-body">
+                            <div class="bg-light" id="appendhere3by4" style="width:100%; height:535px;margin-bottom: 10px;">
+                                <div id="signline-background-overlay" class="pdfOverLayView" style="display:none; height: inherit !important;margin: inherit !important;padding: inherit !important;width: calc(100% - 15px) !important">
+                                    <p class="saving" style="margin-top: 30% !important;text-align:center;">Please wait, Refreshing<span>.</span><span>.</span><span>.</span></p>
+                                </div>
+                                <iframe id="iframepdf" style="width:100%; height:100%;" src="{{ asset('assets/vendor/pdf/default.pdf') }}?r=#zoom=Fit&toolbar=0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+{% endblock %}
