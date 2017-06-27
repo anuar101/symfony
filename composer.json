@@ -1,6 +1,6 @@
 {
     "name": "antonio/symfony3.ajax.crud",
-    "Modified by": "Wangdels",
+    "modified by": "Wangdels",
     "license": "proprietary",
     "type": "project",
     "autoload": {
